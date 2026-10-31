@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071c27"><meta name="description" content="A tiny simultaneous strategy game about finding room in a changing tide.">
+  <title>Tidepool — find your quiet corner</title><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/details.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar"><a class="wordmark" href="/" aria-label="Tidepool home"><span class="mark">✳</span> tidepool</a><div id="connection" class="connection"><i></i><span>Connecting to the water…</span></div></header>
+  <main id="app">
+    <section id="home" class="screen home-screen">
+      <div class="hero-copy"><p class="eyebrow"><span class="eyebrow-dot"></span> A little game of currents & company</p><h1>Find your<br><em>quiet corner.</em></h1><p class="lede">Five reefs. One shifting tide. Pick your place before everyone else does.</p>
+        <div class="hero-actions"><button id="soloBtn" class="button button-primary">Practice with minnows <span>↗</span></button><button id="createBtn" class="button button-quiet">Make a room</button></div>
+        <form id="joinForm" class="join-row"><label class="sr-only" for="roomCode">Room code</label><input id="roomCode" autocomplete="off" maxlength="5" placeholder="ROOM CODE" aria-label="Room code"><button class="button button-join">Join a room <span>→</span></button></form>
+        <p id="homeError" class="error" aria-live="polite"></p>
+      </div>
+      <div class="reef-art" aria-label="An illustration of a glowing tidepool and five tiny reef islands"><div class="sun"></div><div class="ring ring-one"></div><div class="ring ring-two"></div><div class="island i1"><b>〰</b></div><div class="island i2"><b>◇</b></div><div class="island i3"><b>✿</b></div><div class="island i4"><b>☾</b></div><div class="island i5"><b>✧</b></div><div class="float f1"></div><div class="float f2"></div><div class="float f3"></div><div class="art-caption">five places to land<br><span>the tide decides the rest</span></div></div>
+      <div class="home-foot"><span>2–6 players · about 2 minutes</span><span>no accounts · just a name</span></div>
+    </section>
+
+    <section id="room" class="screen room-screen hidden">
+      <div class="room-top"><div><p class="eyebrow">YOUR LITTLE PATCH OF WATER</p><h2 id="phaseTitle">Gathering by the shore</h2></div><div class="room-code"><span>INVITE CODE</span><strong id="codeValue">—</strong><button id="copyBtn" aria-label="Copy invite link">↗</button></div></div>
+      <div class="room-grid"><section class="game-card"><div id="lobbyView">
+        <div class="lobby-lede"><span class="big-mark">✳</span><div><h3>Before you dive in</h3><p>A few neighbors make the water more interesting.</p></div></div>
+        <div class="steps"><div><b>01</b><span>Watch the tide light up one reef.</span></div><div><b>02</b><span>Pick where you think you can land.</span></div><div><b>03</b><span>Fewer neighbors score more. Your favorite adds +2.</span></div></div>
+        <div class="players-heading"><span>ON THE SHORE</span><span id="playerCount">0 / 6</span></div><div id="playerList" class="player-list"></div>
+        <div class="lobby-actions"><label id="readyWrap" class="ready-control"><input id="readyCheck" type="checkbox"><span class="checkmark">✓</span> I’m ready</label><button id="startBtn" class="button button-primary" disabled>Start the tide <span>→</span></button></div>
+      </div>
+      <div id="playView" class="hidden"><div class="round-meta"><span id="roundLabel">ROUND 1 OF 6</span><span id="roundTimer">Choose a reef</span></div><div class="tide-callout"><span id="tideIcon">✳</span><div><small>THE TIDE FAVORS</small><strong id="tideName">—</strong></div><span id="tideBonus">+1</span></div><p id="promptText" class="prompt">Where will you land?</p><div id="reefGrid" class="reef-grid" role="group" aria-label="Choose a reef"></div><p id="pickStatus" class="pick-status" aria-live="polite">Choose a reef before the others do.</p><div class="scoreline"><span>YOUR SCORE</span><strong id="myScore">0</strong></div><div id="roundResults" class="round-results hidden"></div><div class="scores"><span>THE SHORELINE</span><div id="scoreList"></div></div></div>
+      <div id="finishView" class="hidden finish-view"><span class="finish-star">✦</span><p class="eyebrow">THE TIDE HAS SETTLED</p><h3 id="winnerText">A lovely tide.</h3><p id="finishDetail">Every corner has a story.</p><div id="finalScores" class="final-scores"></div><button id="againBtn" class="button button-primary">Play again <span>↻</span></button></div>
+      </section>
+      <aside class="side-card"><div class="side-art"><div class="side-moon"></div><span class="side-star s1">✦</span><span class="side-star s2">·</span><span class="side-star s3">✦</span><div class="side-wave w1"></div><div class="side-wave w2"></div><div class="side-wave w3"></div><span class="side-quote">“The sea has a way<br>of making room.”</span></div><div class="side-copy"><p class="eyebrow">A NOTE FROM THE TIDELINE</p><p>Each reef has a favorite explorer. Find yours, then decide whether to keep it to yourself.</p><button id="leaveBtn" class="text-button">← Leave this room</button></div></aside></div>
+    </section>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <footer><span>Made for curious company.</span><span>Take only memories. Leave the shells.</span></footer>
+  <script src="/client.js" defer></script>
+</body></html>

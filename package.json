@@ -1,0 +1,9 @@
+{
+  "name": "tidepool",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simultaneous strategy game about finding room in a changing tide.",
+  "scripts": { "start": "node server.js", "test:multiplayer": "node test/multiplayer.js" },
+  "dependencies": { "ws": "^8.18.3" },
+  "engines": { "node": ">=20" }
+}
