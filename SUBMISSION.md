@@ -1,6 +1,6 @@
 # Tidepool
 
-**Public URL:** Pending deployment. See [README.md](README.md) for the Render setup steps.
+**Public URL:** https://tidepool-game.onrender.com/
 
 **Description (130 words):**
 

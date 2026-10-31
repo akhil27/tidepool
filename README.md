@@ -2,6 +2,8 @@
 
 **Find your quiet corner.** Tidepool is a small simultaneous strategy game for 2–6 people. Everyone picks one of five reefs each round. The quieter your landing spot, the more it scores; a private favorite reef and the shifting public tide add a little temptation to every choice. Six quick rounds make a full game.
 
+**Play online:** https://tidepool-game.onrender.com/
+
 ## Play
 
 Open the game and choose **Practice with minnows** to play right away, or make a room and share its five-letter code or invite link. In a room, everyone marks ready and the host starts. Each round, tap one reef before the 35-second tide turns. A solo room includes two computer explorers. The end screen shows the winner and scores; the host can start a fresh game in the same room.
@@ -19,22 +21,7 @@ Then open <http://localhost:3000>. The same process serves the browser game and 
 
 ## Deploy on Render
 
-The included `render.yaml` describes a free Node web service with a `/health` health check. To deploy:
-
-1. Create a public GitHub repository named `tidepool` (leave “Add a README” unchecked).
-2. From this folder, publish the local project:
-
-   ```sh
-   git add -A
-   git commit -m "Build Tidepool multiplayer game"
-   git remote add origin https://github.com/YOUR-USER/tidepool.git
-   git push -u origin main
-   ```
-
-   The local project is already initialized on `main`.
-3. In Render, choose **New → Blueprint**, connect GitHub if asked, and select the `tidepool` repository.
-4. Review the single free web service and click **Deploy Blueprint**.
-5. When its status is **Live**, open the `onrender.com` URL shown on the service page and put it in `SUBMISSION.md`.
+The live game is hosted on Render from the public [akhil27/tidepool repository](https://github.com/akhil27/tidepool). The included `render.yaml` describes a free Node web service with `npm install`, `npm start`, and a `/health` health check. Render supplies the `PORT` environment variable. The server serves the browser game and WebSocket multiplayer from the same process.
 
 Render's free service sleeps after 15 minutes without an incoming HTTP request or WebSocket message, then takes about a minute to wake on the next visit. Its loading screen and the game's connection message cover that wait. Render supports inbound WebSockets on public web services. The game needs only `PORT`, which Render supplies. [Render free service limits](https://render.com/docs/free) · [Blueprint setup](https://render.com/docs/infrastructure-as-code) · [WebSockets](https://render.com/docs/websocket).
 
