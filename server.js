@@ -100,7 +100,7 @@ wss.on('connection',ws=>{
     if(m.type==='start'){if(room.hostId!==p.id)return reply(ws,'error','Only the host can start the round.');const humans=[...room.players.values()].filter(q=>!q.isBot);const hasBots=[...room.players.values()].some(q=>q.isBot);if(humans.length<2&&!hasBots)return reply(ws,'error','Invite one more player, or choose Solo practice.');if(humans.length>1&&humans.some(q=>!q.ready))return reply(ws,'error','Everyone must be ready first.');return start(room);}
     if(m.type==='choose'){if(!Number.isInteger(m.reef))return reply(ws,'error','Choose one of the five reefs.');if(!choose(room,p,m.reef))return reply(ws,'error','That reef is not available right now.');return;}
     if(m.type==='again'){if(room.phase!=='finished')return reply(ws,'error','The game is still going.');if(room.hostId!==p.id)return reply(ws,'error','Only the host can start again.');room.phase='lobby';room.round=0;room.winner=null;room.players.forEach(q=>{q.score=0;q.ready=q.isBot;});broadcast(room);return;}
-    if(m.type==='leave'){ws.close(1000,'left');return;}
+    if(m.type==='leave'){detach(ws);ws.close(1000,'left');return;}
     reply(ws,'error','Unknown action.');
   });
   ws.on('close',()=>detach(ws));
